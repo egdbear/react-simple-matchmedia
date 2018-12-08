@@ -1,6 +1,6 @@
 # react-simple-matchmedia
 React component used for matching media queries.
-(It doesn't show in DOM if media query is not matched)
+(It doesn't exists in DOM if media query is not matched)
 Under the hood it uses browser's `window.matchMedia`.
 
 [![CircleCI](https://circleci.com/gh/egdbear/react-simple-matchmedia/tree/master.svg?style=svg)](https://circleci.com/gh/egdbear/react-simple-matchmedia/tree/master)
