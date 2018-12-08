@@ -2,6 +2,8 @@
 React component used for matching media queries.
 (It doesn't show in DOM if media query is not matched)
 
+[![CircleCI](https://circleci.com/gh/egdbear/react-simple-matchmedia/tree/master.svg?style=svg)](https://circleci.com/gh/egdbear/react-simple-matchmedia/tree/master)
+
 ### Install
 
 ```sh
