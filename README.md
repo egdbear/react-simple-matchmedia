@@ -3,7 +3,11 @@ React component used for matching media queries.
 (It doesn't exists in DOM if media query is not matched)
 Under the hood it uses browser's `window.matchMedia`.
 
-[![CircleCI](https://circleci.com/gh/egdbear/react-simple-matchmedia/tree/master.svg?style=svg)](https://circleci.com/gh/egdbear/react-simple-matchmedia/tree/master)
+
+[![](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://circleci.com/gh/egdbear/react-simple-matchmedia)
+[![install size](https://packagephobia.now.sh/badge?p=react-simple-matchmedia)](https://packagephobia.now.sh/result?p=react-simple-matchmedia)
+[![](https://img.shields.io/packagecontrol/dm/GitGutter.svg)](https://www.npmjs.com/package/react-simple-matchmedia)
+
 
 
 ### Install
