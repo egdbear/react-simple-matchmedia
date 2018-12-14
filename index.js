@@ -10,13 +10,20 @@ export default class MediaQuery extends React.Component {
   mql = null;
 
   componentDidMount() {
+    if (typeof window !== 'object') return;
+
     const { media } = this.props;
     const mediaToMatch = mediaQueries[media] || media;
     this.mql = window.matchMedia(mediaToMatch);
     this.mql.addListener(this.onMediaChange);
+
     if (this.mql.matches) {
-      this.setState({ matched: true });
+      this.onMediaChange();
     }
+  }
+
+  componentWillUnmount() {
+    this.mql = null;
   }
 
   onMediaChange = () => {
