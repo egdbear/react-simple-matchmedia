@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 import mediaQueries from './mediaQueries';
 
 export default class MediaQuery extends React.Component {
+  mql = null;
+
+  active = true;
+
   state = {
     matched: false,
   }
 
-  mql = null;
-
   componentDidMount() {
     if (typeof window !== 'object') return;
+    if (!window.matchMedia) return;
 
     const { media } = this.props;
     const mediaToMatch = mediaQueries[media] || media;
@@ -23,10 +26,14 @@ export default class MediaQuery extends React.Component {
   }
 
   componentWillUnmount() {
+    this.active = false;
+    this.mql.removeListener(this.onMediaChange);
     this.mql = null;
   }
 
   onMediaChange = () => {
+    if (!this.active) return;
+
     this.setState({ matched: this.mql.matches });
   }
 
