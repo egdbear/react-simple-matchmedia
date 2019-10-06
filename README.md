@@ -1,8 +1,7 @@
 # react-simple-matchmedia
-`React hook` used for matching media queries.
-(It doesn't render in DOM if media query is not matched)
-It uses browser's `window.matchMedia`.
-
+`React hook` used for matching media queries.  
+It uses browser's `window.matchMedia`.  
+With SSR support :rocket:  
 
 [![](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://circleci.com/gh/egdbear/react-simple-matchmedia)
 ![install size](https://badgen.net/bundlephobia/minzip/react-simple-matchmedia)
