@@ -19,6 +19,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
+    "css-mediaquery": "^0.1.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.5",
@@ -29,17 +30,15 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-native": "^3.5.0",
     "jest": "^23.6.0",
-    "react": "^16.10",
-    "react-dom": "^16.10",
+    "react": "^16.8.0",
+    "react-dom": "16.8.0",
     "rollup": "^0.67.4",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^3.4.0"
   },
   "peerDependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react": "^16.8.0"
   },
   "files": [
     "build"
@@ -49,6 +48,7 @@
     "react-component",
     "react",
     "react-simple-matchmedia",
-    "matchmedia"
+    "matchmedia",
+    "useWindowMedia"
   ]
 }

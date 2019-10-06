@@ -1,71 +1,45 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MediaQuery from '../index';
-import mediaQueries from '../mediaQueries';
+import isMatching from 'css-mediaquery';
+import useReactSimpleMatchMedia from '../index';
 
-describe('MediaQuery', () => {
-  it('Should render phone mediaQuery', () => {
-    window.matchMedia = jest.fn().mockImplementation((query) => {
-      return {
-        addListener: jest.fn(),
-        media: query,
-        matches: true,
-      };
-    });
+beforeEach(() => {
+  // mock window.matchMedia (use 'css-mediaquery')
+  window.matchMedia = jest.fn().mockImplementation((query) => {
+    const width = global.innerWidth;
+    return {
+      addListener: jest.fn(),
+      media: query,
+      matches: isMatching.match(query, { type: 'screen', width }),
+    };
+  });
+});
 
-    const Component = shallow(<MediaQuery media="phone"><span>Hello MediaQuery</span></MediaQuery>);
-    expect(window.matchMedia).toBeCalledWith(mediaQueries.phone);
+const TestComponent = ({ query }) => { // eslint-disable-line react/prop-types
+  const isMatched = useReactSimpleMatchMedia(query);
+  if (isMatched) return <div>should be visible</div>;
+  return null;
+};
+
+describe('useReactSimpleMatchMedia', () => {
+  it('should match phone viewport', () => {
+    global.innerWidth = 500;
+    const Component = shallow(<TestComponent query="phone" />);
     expect(Component).toMatchSnapshot();
+    expect(Component.text()).toBe('should be visible');
   });
 
-  it('Should not render desktop mediaQuery', () => {
-    window.matchMedia = jest.fn(() => {
-      return {
-        addListener: jest.fn(),
-        matches: false,
-      };
-    });
-
-    const Component = shallow(<MediaQuery media="desktop">Hello MediaQuery</MediaQuery>);
-    expect(window.matchMedia).toBeCalledWith(mediaQueries.desktop);
+  it('should not match phone viewport', () => {
+    global.innerWidth = 900;
+    const Component = shallow(<TestComponent query="phone" />);
     expect(Component).toMatchSnapshot();
-    expect(Component.state().matched).toBe(false);
+    expect(Component.text()).toBe('');
   });
 
-  it('Should work as render prop', () => {
-    window.matchMedia = jest.fn(() => {
-      return {
-        addListener: jest.fn(),
-        matches: true,
-      };
-    });
-
-    const Component = shallow((
-      <MediaQuery media="tablet">
-        {matched => matched && <span>Lorem Ipsum</span>}
-      </MediaQuery>
-    ));
-
-    expect(window.matchMedia).toBeCalledWith(mediaQueries.tablet);
-    expect(Component.text()).toBe('Lorem Ipsum');
+  it('should match custom viewport', () => {
+    global.innerWidth = 800;
+    const Component = shallow(<TestComponent query="(min-width : 768px) and (max-width : 1024px)" />);
     expect(Component).toMatchSnapshot();
-  });
-
-  it('Should work with custom media query', () => {
-    window.matchMedia = jest.fn(() => {
-      return {
-        addListener: jest.fn(),
-        matches: true,
-      };
-    });
-
-    const media = '(min-device-width : 768px) and (max-device-width : 1024px)';
-
-    const Component = shallow((
-      <MediaQuery media={media}>match me!</MediaQuery>
-    ));
-
-    expect(window.matchMedia).toBeCalledWith(media);
-    expect(Component).toMatchSnapshot();
+    expect(Component.text()).toBe('should be visible');
   });
 });

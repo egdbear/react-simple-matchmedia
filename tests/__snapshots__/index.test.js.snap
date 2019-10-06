@@ -1,17 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MediaQuery Should not render desktop mediaQuery 1`] = `""`;
-
-exports[`MediaQuery Should render phone mediaQuery 1`] = `
-<span>
-  Hello MediaQuery
-</span>
+exports[`useReactSimpleMatchMedia should match custom viewport 1`] = `
+<div>
+  should be visible
+</div>
 `;
 
-exports[`MediaQuery Should work as render prop 1`] = `
-<span>
-  Lorem Ipsum
-</span>
+exports[`useReactSimpleMatchMedia should match phone viewport 1`] = `
+<div>
+  should be visible
+</div>
 `;
 
-exports[`MediaQuery Should work with custom media query 1`] = `"match me!"`;
+exports[`useReactSimpleMatchMedia should not match phone viewport 1`] = `""`;
