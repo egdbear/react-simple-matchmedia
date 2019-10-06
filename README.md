@@ -1,7 +1,7 @@
 # react-simple-matchmedia
-React component used for matching media queries.
-(It doesn't exists in DOM if media query is not matched)
-Under the hood it uses browser's `window.matchMedia`.
+`React hook` used for matching media queries.
+(It doesn't render in DOM if media query is not matched)
+It uses browser's `window.matchMedia`.
 
 
 [![](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://circleci.com/gh/egdbear/react-simple-matchmedia)
@@ -16,9 +16,15 @@ Under the hood it uses browser's `window.matchMedia`.
 $ yarn add react-simple-matchmedia
 ```
 
+or
+
+```sh
+$ npm i react-simple-matchmedia
+```
+
 ### Usage
 
-[![Edit 1z02pl6xqq](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/1z02pl6xqq)
+[![Edit hopeful-jennings-cho5q](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/hopeful-jennings-cho5q?fontsize=14)
 
 
 #### Pre-defined media queries:
@@ -32,35 +38,34 @@ $ yarn add react-simple-matchmedia
 
 #### With pre-defined query:
 ```
-import SimpleMatchMedia from 'react-simple-matchmedia'
+import useReactSimpleMatchMedia from 'react-simple-matchmedia'
 
- // somewhere in render
+const MediaQueryComponent = () => {
+  const matched = useReactSimpleMatchMedia('phone');
 
-<SimpleMatchMedia media="phone">
-  I am only able to be visible and rendered in DOM on phone screen!
-</SimpleMatchMedia>
-```
-#### With custom query:
-
-```
-<SimpleMatchMedia media="(min-width: 200px) and (max-width: 600px)">
-  I am only able to be visible and rendered in DOM on screen with query of (min-width: 200px) and (max-width: 600px)!
-</SimpleMatchMedia>
-```
-
-
-#### With render prop:
+  return (
+    <Fragment>
+      { matched && '<div>I am only visible and rendered in DOM on phone screen!</div>'}
+    </Fragment>
+  );
+}
 
 ```
-<SimpleMatchMedia media="(min-width: 600px)">
-    {matched =>
-      matched ? (
-        I am matching (min-width: 600px)
-      ) : (
-        "Warning. I am not maching (min-width: 600px)"
-      )
-    }
-</SimpleMatchMedia>
+
+### With custom queries:
+```
+import useReactSimpleMatchMedia from 'react-simple-matchmedia'
+
+const MediaQueryComponent = () => {
+  const matched = useReactSimpleMatchMedia('(min-width: 600) and (max-width: 1200px)');
+
+  return (
+    <Fragment>
+      { matched && '<div>I am only visible and rendered in DOM between 600px and 1200px</div>'}
+    </Fragment>
+  );
+}
+
 ```
 
 ###
