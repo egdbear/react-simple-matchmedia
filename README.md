@@ -1,11 +1,11 @@
 # react-simple-matchmedia
+[![](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://circleci.com/gh/egdbear/react-simple-matchmedia)
+![install size](https://badgen.net/bundlephobia/minzip/react-simple-matchmedia)
+[![](https://img.shields.io/packagecontrol/dm/GitGutter.svg)](https://www.npmjs.com/package/react-simple-matchmedia)  
+
 `React hook` used for matching media queries.  
 It uses browser's `window.matchMedia`.  
 With SSR support :rocket:  
-
-[![](https://img.shields.io/circleci/project/github/RedSparr0w/node-csgo-parser.svg)](https://circleci.com/gh/egdbear/react-simple-matchmedia)
-![install size](https://badgen.net/bundlephobia/minzip/react-simple-matchmedia)
-[![](https://img.shields.io/packagecontrol/dm/GitGutter.svg)](https://www.npmjs.com/package/react-simple-matchmedia)
 
 
 
