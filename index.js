@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import mediaQueries from './mediaQueries';
 
 export default (query) => {
-  if (typeof window !== 'object') return; // SSR
+  if (typeof window !== 'object') return;
+  if (!window.matchMedia) return;
 
   const queryToMatch = mediaQueries[query] || query;
   const [matches, setMatches] = useState(window.matchMedia(queryToMatch).matches);
