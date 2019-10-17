@@ -44,7 +44,7 @@ const MediaQueryComponent = () => {
 
   return (
     <Fragment>
-      { matched && '<div>I am only visible and rendered in DOM on phone screen!</div>'}
+      { matched && <div>I am only visible and rendered in DOM on phone screen!</div>}
     </Fragment>
   );
 }
@@ -60,7 +60,7 @@ const MediaQueryComponent = () => {
 
   return (
     <Fragment>
-      { matched && '<div>I am only visible and rendered in DOM between 600px and 1200px</div>'}
+      { matched && <div>I am only visible and rendered in DOM between 600px and 1200px</div>}
     </Fragment>
   );
 }
