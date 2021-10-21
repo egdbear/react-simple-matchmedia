@@ -1,6 +1,6 @@
 {
   "name": "react-simple-matchmedia",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "React component used for matching media queries",
   "main": "build/index.cjs.js",
   "module": "build/index.es.js",
@@ -10,7 +10,8 @@
   "scripts": {
     "commit": "git-cz",
     "build": "rollup -c",
-    "test": "jest"
+    "test": "jest",
+    "release": "standard-version"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
@@ -59,5 +60,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "standard-version": "^9.3.2"
   }
 }
