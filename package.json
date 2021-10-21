@@ -1,6 +1,6 @@
 {
   "name": "react-simple-matchmedia",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "React component used for matching media queries",
   "main": "build/index.cjs.js",
   "module": "build/index.es.js",
