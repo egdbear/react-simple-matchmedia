@@ -1,30 +1,27 @@
 {
-  "extends": "airbnb",
-    "plugins": [
-      "react",
-      "react-native"
-    ],
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "sourceType": "module",
-      "allowImportExportEverywhere": false,
-      "codeFrame": true
-    },
-    "env": {
-      "react-native/react-native": true,
-      "node": true,
-      "browser": true,
-      "es6": true,
-      "jest": true
-    },
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "rules": {
-      "react/jsx-filename-extension": 0,
-      "arrow-body-style": 0,
-      "react/no-unused-prop-types": 0,
-      "react/require-default-props": 0,
-      "consistent-return": 0
-    }
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["react", "react-native"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": true
+  },
+  "env": {
+    "react-native/react-native": true,
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": 0,
+    "arrow-body-style": 0,
+    "react/no-unused-prop-types": 0,
+    "react/require-default-props": 0,
+    "consistent-return": 0
+  }
 }

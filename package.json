@@ -8,6 +8,7 @@
   "author": "egdbear <egdfer@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "commit": "git-cz",
     "build": "rollup -c",
     "test": "jest"
   },
@@ -20,16 +21,19 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "css-mediaquery": "^0.1.2",
+    "cz-conventional-changelog": "3.3.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.5",
-    "eslint": "^5.9.0",
+    "eslint": "^8.0.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-native": "^3.5.0",
     "jest": "^23.6.0",
+    "prettier": "2.4.1",
     "react": "^16.8.0",
     "react-dom": "16.8.0",
     "rollup": "^0.67.4",
@@ -50,5 +54,10 @@
     "react-simple-matchmedia",
     "matchmedia",
     "useWindowMedia"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

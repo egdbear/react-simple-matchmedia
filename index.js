@@ -10,14 +10,17 @@ export default (query) => {
 
   useEffect(() => {
     const media = window.matchMedia(queryToMatch);
+
     if (media.matches !== matches) setMatches(media.matches);
+
     const listener = () => setMatches(media.matches);
-    media.addEventListener
-      ? media.addEventListener("change", listener)
-      : media.addListener(listener);
-    return () => media.removeEventListener
-      ? media.removeEventListener("change", listener)
-      : media.removeListener(listener);
+
+    if (media.addEventListener) {
+      media.addEventListener('change', listener);
+    } else media.addListener(listener);
+
+    return () =>
+      media.removeEventListener ? media.removeEventListener('change', listener) : media.removeListener(listener);
   }, [matches, queryToMatch]);
 
   return matches;
